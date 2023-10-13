@@ -25,9 +25,9 @@ steps:
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
 
-  - task: DownloadBuildArtifacts@1
-    inputs:
-      buildType: current
-      downloadType: single
-      artifactName: "drop"
-      downloadPath: C:/vs projects/test_cmake_2/artifacts
+#  - task: DownloadBuildArtifacts@1
+#    inputs:
+#      buildType: current
+#      downloadType: single
+#      artifactName: "drop"
+#      downloadPath: C:/vs projects/test_cmake_2/artifacts
