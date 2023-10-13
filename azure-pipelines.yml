@@ -29,5 +29,5 @@ steps:
     inputs:
       buildType: current
       downloadType: single
-      artifactName: "UbuntuRelBuild"
+      artifactName: "drop"
       downloadPath: C:/vs projects/test_cmake_2/artifacts
