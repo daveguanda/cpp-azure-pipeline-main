@@ -27,7 +27,9 @@ steps:
 
   - task: CopyFiles@2
     inputs:
-      targetFolder: '$(Build.ArtifactStagingDirectory)'    
+      targetFolder: '$(Build.ArtifactStagingDirectory)/build/src/my_program/CMakeFiles/my_program.dir'    
+
+
 
   - task: PublishBuildArtifacts@1    
     displayName: 'Publish Artifact: drop'
