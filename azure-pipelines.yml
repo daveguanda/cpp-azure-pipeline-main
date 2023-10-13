@@ -17,13 +17,13 @@ steps:
     inputs:
       cmakeArgs: '..'
 
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifact: drop'
-
   - task: CMake@1
     displayName: 'CMake --build . --config Debug'
     inputs:
       cmakeArgs: '--build . --config Debug'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
 
   - task: DownloadBuildArtifacts@1
     inputs:
