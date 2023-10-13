@@ -6,21 +6,39 @@
 trigger:
 - main
 
-pr:
-  - main
 
 pool:
   vmImage: ubuntu-latest
 
 
-  steps:
-    - task: CMake@1
-      displayName: 'CMake ..'
-      inputs:
-        cmakeArgs: '..'
+steps:
+  - task: CMake@1
+    displayName: 'CMake ..'
+    inputs:
+      cmakeArgs: '..'
 
-    - task: PublishPipelineArtifact@1
-      inputs:
-        targetPath: "$(Build.SourcesDirectory)/artifacts"
-        artifactName: UbuntuRelBuild
+  - task: CMake@1
+    displayName: 'CMake --build . --config Debug'
+    inputs:
+      cmakeArgs: '--build . --config Debug'
 
+#  - task: PublishBuildArtifacts@1
+#    displayName: 'Publish Artifact: drop'
+
+  - task: CopyFiles@2
+    inputs:
+      targetFolder: '$(Build.ArtifactStagingDirectory)'    
+
+
+
+  - task: PublishBuildArtifacts@1    
+    displayName: 'Publish Artifact: drop'
+    inputs:
+      PathtoPublish: '$(build.artifactstagingdirectory)/build/src/my_program/CMakeFiles/my_program.dir'
+
+#  - task: DownloadBuildArtifacts@1
+#    inputs:
+#      buildType: current
+#      downloadType: single
+#      artifactName: "drop"
+#      downloadPath: C:/vs projects/test_cmake_2/artifacts
