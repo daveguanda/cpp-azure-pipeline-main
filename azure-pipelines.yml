@@ -17,8 +17,12 @@ steps:
     inputs:
       cmakeArgs: '..'
 
-  - task: PublishPipelineArtifact@1
-    inputs:
-      targetPath: C:/vs projects/test_cmake_2/artifacts
-      artifactName: UbuntuRelBuild
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
 
+  - task: DownloadBuildArtifacts@1
+    inputs:
+      buildType: current
+      downloadType: single
+      artifactName: "UbuntuRelBuild"
+      downloadPath: C:/vs projects/test_cmake_2/artifacts
