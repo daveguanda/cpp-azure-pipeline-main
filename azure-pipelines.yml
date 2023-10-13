@@ -6,21 +6,19 @@
 trigger:
 - main
 
-pr:
-  - main
 
 pool:
   vmImage: ubuntu-latest
 
 
-  steps:
-    - task: CMake@1
-      displayName: 'CMake ..'
-      inputs:
-        cmakeArgs: '..'
+steps:
+  - task: CMake@1
+    displayName: 'CMake ..'
+    inputs:
+      cmakeArgs: '..'
 
-    - task: PublishPipelineArtifact@1
-      inputs:
-        targetPath: "$(Build.SourcesDirectory)/artifacts"
-        artifactName: UbuntuRelBuild
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: "$(Build.SourcesDirectory)/artifacts"
+      artifactName: UbuntuRelBuild
 
