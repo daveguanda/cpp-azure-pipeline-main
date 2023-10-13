@@ -27,14 +27,14 @@ steps:
 
   - task: CopyFiles@2
     inputs:
-      targetFolder: '$(Build.ArtifactStagingDirectory)/build/src/my_program/CMakeFiles/my_program.dir'    
+      targetFolder: '$(Build.ArtifactStagingDirectory)'    
 
 
 
   - task: PublishBuildArtifacts@1    
     displayName: 'Publish Artifact: drop'
     inputs:
-      PathtoPublish: '$(build.artifactstagingdirectory)'
+      PathtoPublish: '$(build.artifactstagingdirectory)/build/src/my_program/CMakeFiles/my_program.dir'
 
 #  - task: DownloadBuildArtifacts@1
 #    inputs:
